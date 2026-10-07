@@ -13,7 +13,7 @@ public class Ecole {
 
     public void ListerPersonnes(){
         for (Personne p : listePersonnes){
-            System.out.println("###" + p.nom + " " + p.prenom + " ###");
+            System.out.println("\n### " + p.nom + " " + p.prenom + " ###");
             p.PrintDesc();
         }
     }

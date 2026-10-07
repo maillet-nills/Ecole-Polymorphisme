@@ -16,18 +16,17 @@ public class Professeur extends Employe{
             role += listeMatieres.get(i) + ", ";
         }
 
-        role += "et " + listeMatieres.getLast() + ". " +
-                "\nSon salaire est de " + super.salaire + "€.";
+        role += "et " + listeMatieres.getLast() + ".";
 
         return role;
     }
 
     @Override
     public void PrintDesc() {
-        System.out.println(super.toString() + " - " + GetRole());
+        System.out.println(super.toString() + " - " + super.salaire + "€/mois -" + GetRole());
     }
 
-    public void PrintCours(){
+    public void PrintMatieres(){
         for (String c : listeMatieres){
             System.out.println("- Cours de " + c);
         }
