@@ -72,4 +72,6 @@ void main() {
 
     cybersecurite.definirProfesseur(maximeChaumes);
 
+    henriMatisse.exportEcole();
+
 }
