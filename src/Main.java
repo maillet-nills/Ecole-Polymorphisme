@@ -3,12 +3,34 @@
 void main() {
 
     // Tests
+    // AVEC LE POUR ALLER PLUS LOIN
     Ecole henriMatisse = new Ecole();
-    ArrayList<String> coursBTS = new ArrayList<>();
+    ArrayList<String> prerequisCyber = new ArrayList<>();
+    prerequisCyber.add("Cybersécurité");
+    prerequisCyber.add("Php");
 
-    coursBTS.add("Java");
-    coursBTS.add("Php");
-    coursBTS.add("Cybersécurité");
+    Cours cybersecurite = new Cours(
+            "Cybersécurité",
+            4,
+            prerequisCyber
+    );
+
+    ArrayList<Cours> coursBTS = new ArrayList<>();
+    coursBTS.add(cybersecurite);
+
+    ArrayList<String> competences = new ArrayList<>();
+    competences.add("Cybersécurité");
+    competences.add("Php");
+    competences.add("Java");
+
+    Professeur maximeChaumes = new Professeur(
+            "Chaumes",
+            "Maxime",
+            "maxime.chaumes@gmail.com",
+            32,
+            2100,
+            competences
+    );
 
     Etudiant emmaBaron = new Etudiant(
             "Baron",
@@ -32,15 +54,6 @@ void main() {
             coursBTS
     );
 
-    Professeur maximeChaumes = new Professeur(
-            "Chaumes",
-            "Maxime",
-            "maxime.chaumes@gmail.com",
-            32,
-            2100,
-            coursBTS
-    );
-
     Administratif kararAliHassan = new Administratif(
       "Ali Hassan",
       "Karar",
@@ -56,5 +69,7 @@ void main() {
     henriMatisse.AjouterPersonne(kararAliHassan);
 
     henriMatisse.ListerPersonnes();
+
+    cybersecurite.definirProfesseur(maximeChaumes);
 
 }

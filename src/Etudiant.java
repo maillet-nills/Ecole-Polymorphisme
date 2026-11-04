@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 
 public class Etudiant extends Personne {
-    private ArrayList<String> listeCours;
+    private ArrayList<Cours> listeCours;
 
-    public Etudiant(String nom, String prenom, String email, int age, ArrayList<String> listeCours) {
+    public Etudiant(String nom, String prenom, String email, int age, ArrayList<Cours> listeCours) {
         super(nom, prenom, email, age);
         this.listeCours = listeCours;
     }
@@ -11,12 +11,14 @@ public class Etudiant extends Personne {
     @Override
     public String GetRole() {
         String role = "Étudiant.e inscrit.e aux cours de ";
-        for (int i = 0; i < listeCours.size() - 1; i++){
-            role += listeCours.get(i) + ", ";
+        if (listeCours.size() == 1){
+            role += listeCours.get(0).getNom() + ".";
+        } else{
+            for (int i = 0; i < listeCours.size(); i++){
+                role += listeCours.get(i).getNom() + ", ";
+            }
+            role += listeCours.getLast().getNom() + ".";
         }
-
-        role += "et " + listeCours.getLast() + ".";
-
         return role;
     }
 
@@ -26,8 +28,8 @@ public class Etudiant extends Personne {
     }
 
     public void PrintCours(){
-        for (String c : listeCours){
-            System.out.println("- Cours de " + c);
+        for (Cours c : listeCours){
+            System.out.println("- Cours de " + c.getNom());
         }
     }
 }

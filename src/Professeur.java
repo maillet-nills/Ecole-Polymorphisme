@@ -2,21 +2,25 @@ import java.util.ArrayList;
 
 public class Professeur extends Employe{
 
-    private ArrayList<String> listeMatieres;
+    private ArrayList<String> listeCompetences;
 
-    public Professeur(String nom, String prenom, String email, int age, double salaire, ArrayList<String> listeMatieres) {
+    public Professeur(String nom, String prenom, String email, int age, double salaire, ArrayList<String> listeCompetences) {
         super(nom, prenom, email, age, salaire);
-        this.listeMatieres = listeMatieres;
+        this.listeCompetences = listeCompetences;
+    }
+
+    public ArrayList<String> getListeCompetences() {
+        return listeCompetences;
     }
 
     @Override
     public String GetRole() {
-        String role = "Enseigne les cours de ";
-        for (int i = 0; i < listeMatieres.size() - 1; i++){
-            role += listeMatieres.get(i) + ", ";
+        String role = " A pour compétences : ";
+        for (int i = 0; i < listeCompetences.size() - 1; i++){
+            role += listeCompetences.get(i) + ", ";
         }
 
-        role += "et " + listeMatieres.getLast() + ".";
+        role += "et " + listeCompetences.getLast() + ".";
 
         return role;
     }
@@ -27,7 +31,7 @@ public class Professeur extends Employe{
     }
 
     public void PrintMatieres(){
-        for (String c : listeMatieres){
+        for (String c : listeCompetences){
             System.out.println("- Cours de " + c);
         }
     }
